@@ -2,32 +2,45 @@ package practice.bowling;
 
 public class Game
 {
-    private int score = 0;
     private int currentFrame = 0;
-    private int[] throwScroes = new int[21];
-    private int currentThrow = 0;
-    private boolean firstThrow = true;
+
+    private boolean isFirstThrowOfFrame = true;
+
+    private Score score = new Score();
 
     public void addThrow(int pins)
     {
-	throwScroes[currentThrow++]=pins;
-	if(firstThrow)
+	score.addThrow(pins);
+	recordCurrentFrame(pins);
+    }
+
+    private void recordCurrentFrame(int pins)
+    {
+	if (isFirstThrowOfFrame)
 	{
-	    if(pins==10)
+	    if (pins == 10)//Strike
 	    {
 		currentFrame++;
 	    }
 	    else
 	    {
-		firstThrow = false;
+		isFirstThrowOfFrame = false;
 	    }
 	}
 	else
 	{
 	    currentFrame++;
-	    firstThrow=true;
+	    isFirstThrowOfFrame = true;
+	}
+
+	//最大轮数为10
+	if (currentFrame > 10)
+	{
+	    currentFrame = 10;
 	}
     }
+    
+ 
 
     public int score()
     {
@@ -36,34 +49,7 @@ public class Game
 
     public int scoreForFrame(int frame)
     {
-	int score = 0;
-	int currentFrame =0;
-	int currentThrow=0;
-	for (currentFrame = 0; currentFrame < frame; )
-	{
-	    int throw1= throwScroes[currentThrow];
-	    score+=throw1;
-	    if(throw1==10)
-	    {
-		score=score+ throwScroes[currentThrow+1]+throwScroes[currentThrow+2];
-		currentFrame++;	
-		currentThrow++;
-		continue;
-	    }
-	    else
-	    {
-		currentThrow++;
-		int throw2 = throwScroes[currentThrow];
-		score+=throw2;
-		if(throw1+throw2==10)
-		{
-		    score+=throwScroes[currentThrow+1];    
-		}
-		currentFrame++;	
-		currentThrow++;
-	    }
-	}
-	return score;
+	return score.scoreForFrame(frame);
     }
 
 }
