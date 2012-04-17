@@ -61,6 +61,21 @@ public class TestTransaction extends TestCase
 	TimeCard tc = pc.getTimeCard("20120211");
 	assertTrue(tc != null);
 	assertEquals(tc.getHour(),8);
+	    }
+    public void testAddSalesRecepit()
+    {
+	int id =1;
+	AddCommisionedEmployeeTransaction t = new AddCommisionedEmployeeTransaction(1,"Alice","Home",20);
+	t.execute();
 	
-    }
+	SalesReceiptTransaction tct = new SalesReceiptTransaction("20120211",20,id);
+	tct.execute();
+	
+
+	Employee e = PayrollDatabase.getInstance().getEmployee(id);
+	CommionedClassification pc = (CommionedClassification) e.getPaymentClassification();
+	SalesReceipt sr = pc.getSalesReceipt("20120211");
+	assertTrue(sr != null);
+	assertEquals(sr.getAmount(),20);
+	    }
 }
