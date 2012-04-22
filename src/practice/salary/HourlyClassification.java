@@ -4,26 +4,25 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class HourlyClassification implements PaymentClassification
-{    
-    private double rate;
-    private HashMap<String,TimeCard> timeCards = new HashMap<String,TimeCard>();
-    
-    public HourlyClassification(double rate)
-    {
-	super();
-	this.rate = rate;
-    }
+{
+	private double rate;
+	private HashMap<String, TimeCard> timeCards = new HashMap<String, TimeCard>();
 
-    public TimeCard getTimeCard(String date)
-    {
-	return timeCards.get(date);
-    }
+	public HourlyClassification(double rate)
+	{
+		super();
+		this.rate = rate;
+	}
 
-    public void addTimeCard(TimeCard timeCard)
-    {
-	timeCards.put(timeCard.getDate(), timeCard);
-	
-    }
-    
+	public TimeCard getTimeCard(String date)
+	{
+		return timeCards.get(date);
+	}
+
+	public void addTimeCard(TimeCard timeCard)
+	{
+		timeCards.put(timeCard.getDate(), timeCard);
+
+	}
 
 }

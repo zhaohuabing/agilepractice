@@ -2,12 +2,12 @@ package practice.salary;
 
 public class SalariedClassification implements PaymentClassification
 {
-    private double salary;
+	private double salary;
 
-    public SalariedClassification(double salary)
-    {
-	super();
-	this.salary = salary;
-    }
-    
+	public SalariedClassification(double salary)
+	{
+		super();
+		this.salary = salary;
+	}
+
 }

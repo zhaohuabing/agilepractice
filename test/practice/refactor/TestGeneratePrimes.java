@@ -1,12 +1,11 @@
 package practice.refactor;
 
-import static org.junit.Assert.*;
+import junit.framework.TestCase;
 
-import org.junit.Test;
 
-public class TestGeneratePrimes {
+public class TestGeneratePrimes  extends TestCase{
 
-	@Test
+
 	public void testPrimes() {
 		int[] nullArray= PrimeGenerator.generatePrimes(0);
 		assertEquals(nullArray.length, 0);

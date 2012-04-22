@@ -2,54 +2,50 @@ package practice.bowling;
 
 public class Game
 {
-    private int currentFrame = 0;
+	private int currentFrame = 0;
 
-    private boolean isFirstThrowOfFrame = true;
+	private boolean isFirstThrowOfFrame = true;
 
-    private Score score = new Score();
+	private Score score = new Score();
 
-    public void addThrow(int pins)
-    {
-	score.addThrow(pins);
-	recordCurrentFrame(pins);
-    }
-
-    private void recordCurrentFrame(int pins)
-    {
-	if (isFirstThrowOfFrame)
+	public void addThrow(int pins)
 	{
-	    if (pins == 10)//Strike
-	    {
-		currentFrame++;
-	    }
-	    else
-	    {
-		isFirstThrowOfFrame = false;
-	    }
-	}
-	else
-	{
-	    currentFrame++;
-	    isFirstThrowOfFrame = true;
+		score.addThrow(pins);
+		recordCurrentFrame(pins);
 	}
 
-	//最大轮数为10
-	if (currentFrame > 10)
+	private void recordCurrentFrame(int pins)
 	{
-	    currentFrame = 10;
+		if (isFirstThrowOfFrame)
+		{
+			if (pins == 10)// Strike
+			{
+				currentFrame++;
+			} else
+			{
+				isFirstThrowOfFrame = false;
+			}
+		} else
+		{
+			currentFrame++;
+			isFirstThrowOfFrame = true;
+		}
+
+		// 最大轮数为10
+		if (currentFrame > 10)
+		{
+			currentFrame = 10;
+		}
 	}
-    }
-    
- 
 
-    public int score()
-    {
-	return scoreForFrame(currentFrame);
-    }
+	public int score()
+	{
+		return scoreForFrame(currentFrame);
+	}
 
-    public int scoreForFrame(int frame)
-    {
-	return score.scoreForFrame(frame);
-    }
+	public int scoreForFrame(int frame)
+	{
+		return score.scoreForFrame(frame);
+	}
 
 }

@@ -5,36 +5,37 @@ import practice.princple.isp.Timer;
 
 public class TimerDoor implements Door
 {
-    private Timer timer;
-    public TimerDoor()
-    {
-	timer.register(10, 0, new DoorTimerAdapter(this));
-    }
-    
-    @Override
-    public void lock()
-    {
-	// TODO Auto-generated method stub
-	
-    }
+	private Timer timer;
 
-    @Override
-    public void unlock()
-    {
-	// TODO Auto-generated method stub
-	
-    }
+	public TimerDoor()
+	{
+		timer.register(10, 0, new DoorTimerAdapter(this));
+	}
 
-    @Override
-    public boolean isDoorOpen()
-    {
-	// TODO Auto-generated method stub
-	return false;
-    }
+	@Override
+	public void lock()
+	{
+		// TODO Auto-generated method stub
 
-    public void doorTimeOut(int timeOutID)
-    {
+	}
 
-    }
+	@Override
+	public void unlock()
+	{
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public boolean isDoorOpen()
+	{
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void doorTimeOut(int timeOutID)
+	{
+
+	}
 
 }
