@@ -16,7 +16,7 @@ public class ServiceChargeTransaction implements Transaction
 	public void execute()
 	{
 		Employee e = PayrollDatabase.getInstance().getUnionMember(memberId);
-		UnionAffiliation af = e.getAffiliation();
+		Affiliation af = e.getAffiliation();
 		af.addServiceCharge(date, charge);
 
 	}

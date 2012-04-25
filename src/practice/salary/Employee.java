@@ -1,5 +1,7 @@
 package practice.salary;
 
+import java.util.Date;
+
 public class Employee
 {
 	private int id;
@@ -7,7 +9,7 @@ public class Employee
 	private String addr;
 	private PaymentClassification paymentClassification;
 	private PaymentSchedule paymentSchedule;
-	private UnionAffiliation af;
+	private Affiliation af = new NoAffiliation();
 
 	public Employee(int id, String name, String addr)
 	{
@@ -49,14 +51,45 @@ public class Employee
 		return this.paymentSchedule;
 	}
 
-	public void setAffiliation(UnionAffiliation af)
+	public void setAffiliation(Affiliation af)
 	{
 		this.af = af;
 
 	}
 
-	public UnionAffiliation getAffiliation()
+	public Affiliation getAffiliation()
 	{
 		return af;
+	}
+
+	public void setName(String name)
+	{
+		this.name = name;
+	}
+
+	public void setAddr(String addr)
+	{
+		this.addr = addr;
+	}
+
+	public void setClassfication(PaymentClassification classfication)
+	{
+		this.paymentClassification= classfication;
+		
+	}
+
+	public boolean isPayDate(Date date)
+	{
+		return paymentSchedule.isPayDate(date);
+	}
+
+	public void payDay(PayCheck pc)
+	{
+		double grossPay=this.paymentClassification.calculatePay(pc);
+		double deductions=this.getAffiliation().calculateDeductions(pc);
+		double netPay = grossPay-deductions;
+		pc.setGrossPay(grossPay);
+		pc.setDeductions(deductions);
+		pc.setNetPay(netPay);
 	}
 }

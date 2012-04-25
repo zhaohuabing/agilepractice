@@ -10,4 +10,10 @@ public class SalariedClassification implements PaymentClassification
 		this.salary = salary;
 	}
 
+	@Override
+	public double calculatePay(PayCheck pc)
+	{
+		return salary;
+	}
+
 }

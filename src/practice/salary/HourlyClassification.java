@@ -1,7 +1,7 @@
 package practice.salary;
 
 import java.util.HashMap;
-import java.util.Map;
+import java.util.Iterator;
 
 public class HourlyClassification implements PaymentClassification
 {
@@ -23,6 +23,18 @@ public class HourlyClassification implements PaymentClassification
 	{
 		timeCards.put(timeCard.getDate(), timeCard);
 
+	}
+
+	@Override
+	public double calculatePay(PayCheck pc)
+	{
+		double pay = 0;
+		Iterator<TimeCard> it =timeCards.values().iterator();
+		while(it.hasNext())
+		{
+			pay+=it.next().getHour()*rate;
+		}
+		return pay;
 	}
 
 }

@@ -1,6 +1,7 @@
 package practice.salary;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 public class PayrollDatabase
@@ -46,5 +47,17 @@ public class PayrollDatabase
 	public Employee getUnionMember(int memberId)
 	{
 		return unionMap.get(memberId);
+	}
+	
+	public int[] getAllEmployeeIds()
+	{		
+		int[] employids = new int[map.size()];
+		int i=0;
+		Iterator<Integer> it = this.map.keySet().iterator();
+		while(it.hasNext())
+		{
+	       		employids[i++]=it.next().intValue();
+		}
+		return employids;
 	}
 }

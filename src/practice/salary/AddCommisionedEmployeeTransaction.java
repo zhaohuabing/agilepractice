@@ -4,12 +4,14 @@ public class AddCommisionedEmployeeTransaction extends AddEmployeeTransaction
 {
 
 	private double rate;
+	private double salary;
 
 	public AddCommisionedEmployeeTransaction(int i, String name, String addr,
-			double rate)
+			double rate,double salary)
 	{
 		super(i, name, addr);
 		this.rate = rate;
+		this.salary = salary;
 	}
 
 	@Override
@@ -21,7 +23,7 @@ public class AddCommisionedEmployeeTransaction extends AddEmployeeTransaction
 	@Override
 	protected PaymentClassification getPaymentClassification()
 	{
-		return new CommionedClassification(rate);
+		return new CommionedClassification(rate,salary);
 	}
 
 }

@@ -2,11 +2,10 @@ package practice.salary;
 
 import java.util.HashMap;
 
-public class UnionAffiliation implements Affiliation
+public class NoAffiliation implements Affiliation
 {
-	private HashMap<String, Double> serviceCharge = new HashMap<String, Double>();
 
-	public UnionAffiliation(int memberId, double d)
+	public NoAffiliation()
 	{
 		// TODO Auto-generated constructor stub
 	}
@@ -17,7 +16,7 @@ public class UnionAffiliation implements Affiliation
 	@Override
 	public double getServiceCharge(String date)
 	{
-		return serviceCharge.get(date);
+		return 0;
 	}
 
 	/* (non-Javadoc)
@@ -26,8 +25,7 @@ public class UnionAffiliation implements Affiliation
 	@Override
 	public void addServiceCharge(String date, double charge)
 	{
-		serviceCharge.put(date, charge);
-
+		
 	}
 
 	@Override
