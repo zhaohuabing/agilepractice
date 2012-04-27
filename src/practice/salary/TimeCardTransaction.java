@@ -1,12 +1,14 @@
 package practice.salary;
 
+import java.util.Date;
+
 public class TimeCardTransaction implements Transaction
 {
-	private String date;
+	private Date date;
 	private int hour;
 	private int employeeId;
 
-	public TimeCardTransaction(String date, int hour, int employeeId)
+	public TimeCardTransaction(Date date, int hour, int employeeId)
 	{
 		this.date = date;
 		this.hour = hour;

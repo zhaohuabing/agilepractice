@@ -7,4 +7,6 @@ public interface PaymentSchedule
 
 	boolean isPayDate(Date date);
 
+	Date getgetPayPeriodStartDate(Date date);
+
 }

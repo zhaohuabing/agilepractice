@@ -1,12 +1,14 @@
 package practice.salary;
 
+import java.util.Date;
+
 public class TimeCard
 {
-	private String date;
+	private Date date;
 	private int hour;
 	private int employeeId;
 
-	public TimeCard(String date, int hour, int employeeId)
+	public TimeCard(Date date, int hour, int employeeId)
 	{
 		this.date = date;
 		this.hour = hour;
@@ -18,7 +20,7 @@ public class TimeCard
 		return hour;
 	}
 
-	public String getDate()
+	public Date getDate()
 	{
 		return this.date;
 	}

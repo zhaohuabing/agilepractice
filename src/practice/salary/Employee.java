@@ -82,6 +82,11 @@ public class Employee
 	{
 		return paymentSchedule.isPayDate(date);
 	}
+	
+	public Date getPayPeriodStartDate(Date date)
+	{
+		return this.getSchedule().getgetPayPeriodStartDate( date);
+	}
 
 	public void payDay(PayCheck pc)
 	{

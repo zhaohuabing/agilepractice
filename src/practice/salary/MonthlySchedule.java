@@ -17,4 +17,22 @@ public class MonthlySchedule implements PaymentSchedule
 				.get(GregorianCalendar.MONTH);
 	}
 
+	@Override
+	public Date getgetPayPeriodStartDate(Date date)
+	{
+		GregorianCalendar payDay = new GregorianCalendar();
+		payDay.setTime(date);
+		
+		GregorianCalendar payPeriondStartDay = new GregorianCalendar();
+		payPeriondStartDay.set(GregorianCalendar.YEAR, payDay.get(GregorianCalendar.YEAR));
+		payPeriondStartDay.set(GregorianCalendar.MONTH, payDay.get(GregorianCalendar.MONTH));
+		payPeriondStartDay.set(GregorianCalendar.DAY_OF_MONTH, 1);
+		payPeriondStartDay.set(GregorianCalendar.AM_PM,GregorianCalendar.AM);
+		payPeriondStartDay.set(GregorianCalendar.HOUR,0);
+		payPeriondStartDay.set(GregorianCalendar.MINUTE,0);
+		payPeriondStartDay.set(GregorianCalendar.SECOND,0);
+		payPeriondStartDay.set(GregorianCalendar.MILLISECOND,0);
+		return payPeriondStartDay.getTime();
+	}
+
 }

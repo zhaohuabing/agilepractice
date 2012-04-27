@@ -11,10 +11,18 @@ public class PayCheck
 	
 	private double netPay;
 
+	private Date payPeriodStartDate;
+	
 	private Date payDate;
 	
-	public PayCheck(Date payDate)
+	public Date getPayDate()
 	{
+		return payDate;
+	}
+
+	public PayCheck(Date payPeriodStartDate, Date payDate)
+	{
+		this.payPeriodStartDate = payPeriodStartDate;
 		this.payDate = payDate;
 	}
 	
@@ -48,6 +56,9 @@ public class PayCheck
 		this.netPay = netPay;
 	}
 
-
+	public Date getPayPeriodStartDate()
+	{
+		return payPeriodStartDate;
+	}
 
 }

@@ -23,7 +23,7 @@ public class PayDayTransaction implements Transaction
 			Employee e = PayrollDatabase.getInstance().getEmployee(ids[i]);
 			if(e.isPayDate(payDate))
 			{
-				PayCheck pc = new PayCheck(payDate);
+				PayCheck pc = new PayCheck(e.getPayPeriodStartDate(payDate),payDate);
 				e.payDay(pc);
 				payChecks.put(ids[i], pc);
 			}

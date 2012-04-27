@@ -1,19 +1,21 @@
 package practice.salary;
 
+import java.util.Date;
+
 public class SalesReceipt
 {
-	private String date;
+	private Date date;
 	private int amount;
 	private int employeeId;
 
-	public SalesReceipt(String date, int amount, int employeeId)
+	public SalesReceipt(Date date, int amount, int employeeId)
 	{
 		this.date = date;
 		this.amount = amount;
 		this.employeeId = employeeId;
 	}
 
-	public String getDate()
+	public Date getDate()
 	{
 		return this.date;
 	}

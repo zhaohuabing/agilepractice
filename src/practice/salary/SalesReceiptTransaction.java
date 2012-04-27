@@ -1,12 +1,14 @@
 package practice.salary;
 
+import java.util.Date;
+
 public class SalesReceiptTransaction implements Transaction
 {
-	private String date;
+	private Date date;
 	private int amount;
 	private int employeeId;
 
-	public SalesReceiptTransaction(String date, int amount, int employeeId)
+	public SalesReceiptTransaction(Date date, int amount, int employeeId)
 	{
 		this.date = date;
 		this.amount = amount;
